@@ -7,6 +7,7 @@ class AppApplication < Rho::RhoApplication
     @tabs = nil
     #To remove default toolbar uncomment next line:
     @@toolbar = nil
+    @articles = Article.find(:all)
     super
 
     # Uncomment to set sync notification callback to /app/Settings/sync_notify.

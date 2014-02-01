@@ -10,7 +10,9 @@ class XyzController < Rho::RhoController
     render 
   end
   def list
-    if @params['search']
+    @articles = Article.find(:all)
+     @query = @params['search']  
+    if @params['searchd']
        
      result = Rho::AsyncHttp.get(
           :url => "http://daqwest.com/rhodes.json?a="+@params['search']

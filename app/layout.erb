@@ -56,7 +56,11 @@
         <link href="/public/css/android.css" type="text/css" rel="stylesheet"/>
     <% end %>
 <script type="text/javascript" charset="utf-8" src="/public/js/application.js"></script>
-
+<script id="panel-init">
+    $(function() {
+  //    $( "body>[data-role='panel']" ).panel();
+    });
+  </script>
     </head>
 
 <body data-platform="<%= System::get_property('platform') %>"

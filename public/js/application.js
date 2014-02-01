@@ -1,31 +1,50 @@
+
 var i = Number(localStorage.getItem('search-counter')) + 1;
-var ids =[];
+var ids;
 var j,k,searchlist;
 var $recent = $("ul.a");
-$(function(){ 
-$recent = $("ul.a");
-	
-searchlist = localStorage.getItem('search-ids');
-searchlist = searchlist ? searchlist.split(',') : [];   
-for( j = 0, k = searchlist.length; j < k; j++) {
-	$recent.append(
-		"<li class='ui-li-static ui-body-inherit'>"
-		+ localStorage.getItem("search-"+searchlist[j]) 
-		+ "</li>"
-	);
+function initializeRecent(){
+	searchlist = localStorage.getItem('search-ids');
+	searchlist = searchlist ? searchlist.split(',') : [];   
+	for( j = 0, k = searchlist.length; j < k; j++) {
+		$("ul.a").append(
+			"<li ><a href = '/app/Xyz/list?search="
+			+ localStorage.getItem("search-"+searchlist[j]) + "' class='ui-link ui-btn ui-shadow ui-corner-all' data-role='button'>"
+			+ localStorage.getItem("search-"+searchlist[j]) 
+			+ "</a></li>"
+		);
+	}
+
 }
-});
+function checkInArr(a){
+	var arr =[];
+	searchlist = localStorage.getItem('search-ids');
+	searchlist = searchlist ? searchlist.split(',') : [];   
+	for( j = 0, k = searchlist.length; j < k; j++) {
+			arr.push(localStorage.getItem("search-"+searchlist[j]) );
+	}
+	if($.inArray(a,arr)==-1) return false;
+	else return true;
+}
 function addToRecent(a) {
 	var query =a;
-	ids.push(i);
+
+	if(localStorage.getItem('search-ids')!=null){
+	ids = localStorage.getItem('search-ids');
+	ids = ids+","+i;}
+	else{
+		ids =i;
+	}
 	localStorage.setItem("search-"+i,query);
-	localStorage.setItem("search-ids", ids.join(","));
+	localStorage.setItem("search-ids", ids);
 	localStorage.setItem("search-counter", i);
-	$("ul.a").append(
-	"<li class='ui-li-static ui-body-inherit'>"
-	+ query 
-	+ "</li>"
-	);
+//	$("ul.a").append(
+//	"<li class='ui-li-static ui-body-inherit'><a href = '/app/Xyz/list?search="
+//	+ query + "'/>"
+//	+ query 
+//	+ "</a></li>"
+//	);
 	i++;
 }
+
 function helloWorld() {}
