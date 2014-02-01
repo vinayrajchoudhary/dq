@@ -1,0 +1,27 @@
+#sdk: "C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/rhodes-3.5.1.12"
+sdkversion: "3.5.0"
+name: "AlgoRep"
+version: 1.0
+vendor: "rhomobile"
+build: "debug"
+bbver: 4.6
+applog: "rholog.txt"
+iphone:
+  configuration: "Release"
+  sdk: "iphonesimulator5.0"
+  provisionprofile: 
+  codesignidentity: 
+  entitlements: 
+  BundleIdentifier: "com.rhomobile.dq"
+  BundleURLScheme: "dq"
+wp:
+  productid: "24dcb0f0-6578-0131-a15c-1c659daf543e"
+symbian:
+  uid: "0xef01fddb"
+android:
+  version: 2.1
+  emulator: "a"
+extensions:
+  - json
+  - rexml
+  - set

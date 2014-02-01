@@ -1,0 +1,18 @@
+<div data-role="page" data-add-back-btn="true" data-theme="d" data-dom-cache="true">
+
+<div data-role="header" data-position="inline">
+    <h1>AlgoRep</h1>
+    <a class="ui-btn-left" data-theme="a" data-icon="arrow-l" data-rel="back" data-direction="reverse">Back</a>
+</div>
+
+<div data-role="content">
+  <h3> <%=@d['title']%></h3>
+  <hr style="background-color:#AAA;height:2px;">
+  <span style="font-size: 0.8em;font-weight: lighter;"><%=@source%></span>
+  <div class="result" style ="width:90%;margin-left:5%;">  
+      <%=@d['content']%>
+       
+  </div>
+</div>
+
+</div>

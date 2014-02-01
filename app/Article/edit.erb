@@ -1,0 +1,36 @@
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <h1>Edit <%= @article.title %></h1>
+    <a href="<%= url_for :action => :show, :id => @article.object %>" class="ui-btn-left" data-icon="back" data-direction="reverse">
+      Cancel
+    </a>
+    <a href="<%= url_for :action => :delete, :id => @article.object %>" class="ui-btn-right" data-icon="delete" data-direction="reverse">
+      Delete
+    </a>
+  </div>
+
+  <div data-role="content">
+    <form method="POST" action="<%= url_for :action => :update %>">
+      <input type="hidden" name="id" value="<%= @article.object %>"/>
+      
+          <div data-role="fieldcontain">
+            <label for="article[title]" class="fieldLabel">Title</label>
+            <input type="text" id="article[title]" name="article[title]" value="<%= @article.title %>" <%= placeholder( "Title" ) %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="article[source]" class="fieldLabel">Source</label>
+            <input type="text" id="article[source]" name="article[source]" value="<%= @article.source %>" <%= placeholder( "Source" ) %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="article[content]" class="fieldLabel">Content</label>
+            <input type="text" id="article[content]" name="article[content]" value="<%= @article.content %>" <%= placeholder( "Content" ) %> />
+          </div>
+      
+      <input type="submit" value="Update"/>
+    </form>
+  </div>
+
+</div>
