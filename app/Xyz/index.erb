@@ -1,18 +1,20 @@
 <div data-role="page"  data-theme="a">
-<script>
-$(function(){ 
-  initializeRecent();
-    
-});
-</script>
+
 <div data-role="panel" id="myPanel" class="main_nav" data-display="push"  data-dismissible="true" data-theme="b">
     <ul data-role="listview" class="a">            
 
             <li><a href="/app/Xyz" data-role="button" data-icon="home">
             Home</a> </li>
-            <li data-role="list-divider">Archived Articles</li> 
-            <%@articles.each do |a|%>  <li><%=a.title%>  </li><%end%>
-            <li data-role="list-divider">Recent searches</li>                  
+            <li data-role="list-divider"><a href="/app/Article"> Archived Articles</a></li> 
+              <% @articles.each do |article| %>
+           
+               <li>
+                 <a href="<%= url_for :controller => :Article, :action => :show, :id => article.object %>">
+                   <%= article.title %>
+                 </a>
+               </li>
+           
+              <% end %>                 
             </ul>
    </div><!-- /panel -->
 <div data-role="header" > 

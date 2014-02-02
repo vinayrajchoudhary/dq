@@ -20,13 +20,30 @@ class XyzController < Rho::RhoController
         @get_result = result["body"]
           @ds = Rho::JSON.parse(@get_result)   
     end  
-      
-     render 
+     
+    render 
+     
   end
   def articl
     @articles = Article.find(:all)
-      
+    if @params['ad']
+           
+         result = Rho::AsyncHttp.get(
+              :url => "http://daqwest.com/rhodesread.json?ad="+@params['ad']
+            )
+            @get_result = result["body"]
+              @artc = Rho::JSON.parse(@get_result)   
+              source = @params['ad']
+              @source = "wiki"
+                if source.include?("http")
+                  @source = source.split("/")[2]
+                else
+                  @source = source.split("/")[1]
+                end    
+    end
+    if @get_result  
     render 
+    end
   end
   # GET /Xyz/{1}
   def show

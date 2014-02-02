@@ -1,23 +1,21 @@
 
 <div data-role="page" data-theme="a">
-<script>
-$(function(){ 
-  
-  var quer = "<%=@query%>"; 
-  if((quer!=null)&&(!checkInArr(quer)))
-  addToRecent(quer);
-  initializeRecent();
-    
-});
-</script>
+
 <div data-role="panel" id="myPanel" class="main_nav" data-display="push"  data-dismissible="true" data-theme="b">
   <ul data-role="listview" class="a">            
 
           <li><a href="/app/Xyz" data-role="button" data-icon="home">
           Home</a> </li>
           <li data-role="list-divider">Archived Articles</li> 
-          <%@articles.each do |a|%>  <li><%=a.title%>  </li><%end%>
-          <li data-role="list-divider">Recent searches</li>                  
+            <% @articles.each do |article| %>
+         
+             <li>
+               <a href="<%= url_for :controller => :Article, :action => :show, :id => article.object %>">
+                 <%= article.title %>
+               </a>
+             </li>
+         
+              <% end %>                 
           </ul>
  </div><!-- /panel -->
 <div data-role="header" > 
@@ -26,13 +24,18 @@ $(function(){
     <div class="orange" style="background-color:orange;float:left;width:100%;height:2px"></div>
  
 </div><!-- /header -->
-<div data-role="content" >
+<div data-role="content" style="overflow-x: visible;">
     <ul data-role="listview" >            
           <%begin%>
-            <% @d["pages"].each do |d|%>
-              <li >
-                <a  href="/app/Xyz/articl" style="white-space:normal;"><img src="/public/images/article.jpg" class="ui-li-thumb" />
-                  <h2 class="ui-li-heading"><%=d["title"]%></h2>  
+            <% @ds["pages"].each do |d|%>
+              <li data-icon="false" >
+                <a  href="/app/Xyz/articl?ad=<%=d['link']%>" style="white-space:normal;">
+                <%begin%>
+                <img src="<%=d["img_url"]%>" class="ui-li-thumb" />
+                <%rescue%>
+                <img src="/public/images/article.jpg" class="ui-li-thumb" />
+                <%end%>
+                <h2 class="ui-li-heading"><%=d["title"]%></h2>  
                     <p class="ui-li-desc"><%=d["link"]%></p>
              
                 </a></li>

@@ -5,5 +5,5 @@ reload_app_changes=0
 debug_port=
 debug_host='127.0.0.1'
 platform='android'
-os_version='2.1'
+os_version='4.0'
 ext_path=C:/MotorolaRhoMobileSuite4.0.0/ruby/lib/ruby/gems/1.9.1/gems/rhodes-4.0.0/lib/commonAPI/coreapi;C:/MotorolaRhoMobileSuite4.0.0/ruby/lib/ruby/gems/1.9.1/gems/rhodes-4.0.0/lib/extensions/json;C:/MotorolaRhoMobileSuite4.0.0/ruby/lib/ruby/gems/1.9.1/gems/rhodes-4.0.0/lib/extensions/rexml;C:/MotorolaRhoMobileSuite4.0.0/ruby/lib/ruby/gems/1.9.1/gems/rhodes-4.0.0/lib/extensions/set;

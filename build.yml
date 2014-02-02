@@ -20,7 +20,7 @@ symbian:
   uid: "0xef01fddb"
 android:
   android_title: 0
-  version: 2.1
+  version: "4.0"
   emulator: "a"
 extensions:
   - json

@@ -42,7 +42,7 @@ class ArticleController < Rho::RhoController
     redirect :action => :index
   end
   def create1
-    @article = Article.create({"title" => "asd" , "source" => "fdd" , "content" => "sdsdsd" })
+    @article = Article.create(@params['article'])
     redirect :action => :index
   end
 

@@ -11,24 +11,17 @@
   </div>
 
   <div data-role="content">
-    <ul data-role="listview">
+      <div class = "read_content">    
+          <div class = "read_head">    
+            <h1> <%= @article.title%></h1>
+            <div class="source" ><%=@article.source%></div>
+          </div >    
       
-          <li>
-            <div class="itemLabel">Title</div>
-            <div class="itemValue"><%= @article.title %></div>
-          </li>
       
-          <li>
-            <div class="itemLabel">Source</div>
-            <div class="itemValue"><%= @article.source %></div>
-          </li>
-      
-          <li>
-            <div class="itemLabel">Content</div>
-            <div class="itemValue"><%= @article.content %></div>
-          </li>
-      
-    </ul>
+            <div class="read_text" style ="">  
+      <%= @article.content%>  
+      </div><!-- /readercontent -->
+
   </div>
 
 </div>
