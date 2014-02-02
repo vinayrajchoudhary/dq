@@ -21,7 +21,7 @@ $(function(){
           </ul>
  </div><!-- /panel -->
 <div data-role="header" > 
-    <a href="#myPanel" data-rel="panel" data-role="button" data-corners="true" data-iconpos="notext" data-icon="bars" data-theme="c" style="background-color:#9ecf5e;border-color:#567133"></a>
+    <a href="#myPanel" data-rel="panel" data-role="button" data-corners="false" data-iconpos="notext" data-icon="bars" data-theme="c" style="background-color:#9ecf5e;border-color:#567133"></a>
     <h1>DQ</h1>
     <div class="orange" style="background-color:orange;float:left;width:100%;height:2px"></div>
  
@@ -29,11 +29,11 @@ $(function(){
 <div data-role="content" >
     <ul data-role="listview" >            
           <%begin%>
-            <% 9.times do%>
-              <li data-icon="false">
-                <a  href="/app/Xyz/{1}?ad=" style="white-space:normal;"><img src="/public/images/article.jpg" class="ui-li-thumb" />
-                  <h3 class="ui-li-heading">Selection sort</h3>  
-                    <p class="ui-li-desc">Personal.kent.edu</p>
+            <% @d["pages"].each do |d|%>
+              <li >
+                <a  href="/app/Xyz/articl" style="white-space:normal;"><img src="/public/images/article.jpg" class="ui-li-thumb" />
+                  <h2 class="ui-li-heading"><%=d["title"]%></h2>  
+                    <p class="ui-li-desc"><%=d["link"]%></p>
              
                 </a></li>
             <%end%>

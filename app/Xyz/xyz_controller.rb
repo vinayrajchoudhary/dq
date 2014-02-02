@@ -12,16 +12,21 @@ class XyzController < Rho::RhoController
   def list
     @articles = Article.find(:all)
      @query = @params['search']  
-    if @params['searchd']
+    if @params['search']
        
      result = Rho::AsyncHttp.get(
           :url => "http://daqwest.com/rhodes.json?a="+@params['search']
         )
         @get_result = result["body"]
-          @d = Rho::JSON.parse(@get_result)   
+          @ds = Rho::JSON.parse(@get_result)   
     end  
       
      render 
+  end
+  def articl
+    @articles = Article.find(:all)
+      
+    render 
   end
   # GET /Xyz/{1}
   def show

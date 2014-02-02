@@ -4,11 +4,12 @@ var ids;
 var j,k,searchlist;
 var $recent = $("ul.a");
 function initializeRecent(){
+	$("li.recent").remove();
 	searchlist = localStorage.getItem('search-ids');
 	searchlist = searchlist ? searchlist.split(',') : [];   
 	for( j = 0, k = searchlist.length; j < k; j++) {
 		$("ul.a").append(
-			"<li ><a href = '/app/Xyz/list?search="
+			"<li class='recent'><a href = '/app/Xyz/list?search="
 			+ localStorage.getItem("search-"+searchlist[j]) + "' class='ui-link ui-btn ui-shadow ui-corner-all' data-role='button'>"
 			+ localStorage.getItem("search-"+searchlist[j]) 
 			+ "</a></li>"

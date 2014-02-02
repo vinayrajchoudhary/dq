@@ -19,6 +19,7 @@ wp:
 symbian:
   uid: "0xef01fddb"
 android:
+  android_title: 0
   version: 2.1
   emulator: "a"
 extensions:

@@ -38,7 +38,11 @@ class ArticleController < Rho::RhoController
 
   # POST /Article/create
   def create
-    @article = Article.create(@params['article'])
+     @article = Article.create(@params['article'])
+    redirect :action => :index
+  end
+  def create1
+    @article = Article.create({"title" => "asd" , "source" => "fdd" , "content" => "sdsdsd" })
     redirect :action => :index
   end
 

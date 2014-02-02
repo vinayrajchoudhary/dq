@@ -1,0 +1,86 @@
+
+<div data-role="page" data-theme="a">
+<style>
+.read_head h1{
+  border-bottom: 1px solid #CDCDCD;
+    font-size: 1.7em;
+    font-weight: 700;
+    line-height: 1.3;
+    padding-bottom: 0.5em;
+}
+div.source{
+  line-height: 0.9;
+  margin-top: 12px;
+  font-size: 0.9em; font-weight: lighter;color: #999;
+  margin-bottom: 35px;
+}
+.read_content{
+  font-family: chaparral-pro, serif;
+  text-rendering: optimizelegibility;
+  width:90%;margin-left:5%;
+}
+.read_text{
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: 1.2em;
+ 
+}
+/* reset buttons */
+a[data-role="button"][data-theme="reset"] {
+border: none;
+
+  background: transparent;  
+  border-radius: 0px; -webkit-border-radius: 0px; -moz-border-radius: 0px;
+    box-shadow: none !important; -webkit-box-shadow: none !important; -moz-box-shadow: none !important;
+    text-decoration: none;
+    }
+ 
+    </style>
+<script>
+$(function(){ 
+  
+ initializeRecent();
+    
+});
+
+</script>
+<div data-role="panel" id="myPanel" class="main_nav" data-display="push"  data-dismissible="true" data-theme="b">
+  <ul data-role="listview" class="a">            
+
+          <li><a href="/app/Xyz" data-role="button" data-icon="home">
+          Home</a> </li>
+          <li data-role="list-divider">Archived Articles</li> 
+          <%@articles.each do |a|%>  <li><%=a.title%>  </li><%end%>
+          <li data-role="list-divider">Recent searches</li>                  
+          </ul>
+ </div><!-- /panel -->
+<div data-role="header" > 
+    <a href="#myPanel" data-rel="panel" data-role="button" data-iconpos="notext" data-icon="bars" data-theme="reset" ></a>
+    <h1>DQ</h1>
+    <div class="orange" style="background-color:orange;float:left;width:100%;height:2px"></div>
+    <a href="/app/Article/create1" data-role="button" data-theme="reset"  data-iconpos="notext" data-icon="check" ></a>
+        
+</div><!-- /header -->
+<div data-role="content" >
+<div class = "read_content">    
+    <div class = "read_head">    
+      <h1> Bubble sort illustration</h1>
+      <div class="source" >personal.kent.edu</div>
+    </div >    
+
+
+      <div class="read_text" style ="">  
+   <p> So about a week or so ago I had an idea about a simple jQuery Mobile application that would make use of Local Storage. That was a week ago. Turns out - the "simple" application turned out to be a royal pain in the rear. Not because of Local Storage, but because of some misconceptions and lack of knowledge on my part in jQuery Mobile. What followed was a couple painful days (and more than a few curse words) but after all of that, I feel like I've got a better understanding of jQuery Mobile and got to play with some new features. So with that being said, let's get to the app.
+    </p>
+    <p>
+    My idea was a rather simple one. Given a collection of art, allow the user to browse categories and view individual pieces of art. I've done this before as a jQuery Mobile example. But what I thought would be interesting is to add a simple "Favorites" system. As you browse through the art you can select a piece y
+     </p>
+    My idea was a rather simple one. Given a collection of art, allow the user to browse categories and view individual pieces of art. I've done this before as a jQuery Mobile example. But what I thought would be interesting is to add a simple "Favorites" system. As you browse through the art you can select a piece you like, add it to your favorites, and then later have a quicker way to access them. To make things even more interesting, I thought I'd make use of Local Storage. Local Storage is an HTML5 feature, and unfortunately, it isn't quite as sexy as Canvas so it doesn't get as many cool demos. But it's one of those - you know - useful things that is actually pretty well supported. Local Storage is basically a key system of data. You can store, on the browse, a key and a value. Like name="Raymond". Unlike cookies, this data is not sent to the server on every request. Rather, it just sits there on the client ready to be used by JavaScript. You've got access to both a permanent (localStorage) and session based (sessionStorage) API. The excellent DiveIntoHTML5 talks about Local Storage here. I won't talk any more about the API as it's rather quite simple and the Dive site explains it more than well enough. Before getting into this version though, let's quickly look at the initial, simpler version.
+    
+    My application consists of three HTML files, all powered by ColdFusion. The home page will list categories, the category page will list art, and the detail page will show just an art piece. Let's start with the index page.      
+      </div>
+   
+</div><!-- /readercontent -->
+      </div><!-- /content -->
+</div>
+  
