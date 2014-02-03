@@ -3,6 +3,8 @@
 <script>
 $(function(){
 $("a#archiveit").click(function (e) {
+  var a = $(this).parent().parent();
+  $(".read_text",a).html();
   $.ajax({
           url: "/app/Article/created",
           dataType: "json",
@@ -56,7 +58,9 @@ border: none;
     <a href="#myPanel" data-rel="panel" data-role="button" data-iconpos="notext" data-icon="bars" data-theme="reset" ></a>
     <h1>DQ</h1>
     <div class="orange" style="background-color:orange;float:left;width:100%;height:2px"></div>
-    <a id="archiveit" href="#" data-role="button" data-theme="reset"  data-iconpos="notext" data-icon="check" ></a>
+    
+    <a id="archiveit" href="#" data-role="button" data-theme="reset"  data-iconpos="notext" data-icon="check" >
+    </a><!-- /this link should directly come under header for our javascript on archive click to work properly-->
         
 </div><!-- /header -->
 <div data-role="content" style="overflow-x: visible;">

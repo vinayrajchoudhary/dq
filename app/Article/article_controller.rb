@@ -42,9 +42,7 @@ class ArticleController < Rho::RhoController
     redirect :action => :index
   end
   def created
-    Article.find(:all).each do |a|
-      a.destroy 
-    end
+   
     @article = Article.create(@params['article'])
      
     obj = {"title" => @article.title, "id"=> @article.object}
