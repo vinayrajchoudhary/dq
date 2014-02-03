@@ -15,7 +15,7 @@ class XyzController < Rho::RhoController
     if @params['search']
        
      result = Rho::AsyncHttp.get(
-          :url => "http://daqwest.com/rhodes.json?a="+@params['search']
+          :url => "http://daqwest.com/rhodes.json?a="+@params['search'].gsub(" ","%20")
         )
         @get_result = result["body"]
           @ds = Rho::JSON.parse(@get_result)   

@@ -5,17 +5,8 @@
 
             <li><a href="/app/Xyz" data-role="button" data-icon="home">
             Home</a> </li>
-            <li data-role="list-divider"><a href="/app/Article"> Archived Articles</a></li> 
-              <% @articles.each do |article| %>
-           
-               <li>
-                 <a href="<%= url_for :controller => :Article, :action => :show, :id => article.object %>">
-                   <%= article.title %>
-                 </a>
-               </li>
-           
-              <% end %>                 
-            </ul>
+            <%= render :partial =>"partials/archivelist", :locals => { :articles => @articles } %>            
+              </ul>
    </div><!-- /panel -->
 <div data-role="header" > 
       <a href="#myPanel" data-rel="panel" data-role="button" data-corners="false" data-iconpos="notext" data-icon="bars" data-theme="c" style="background-color:#9ecf5e;border-color:#567133"></a>

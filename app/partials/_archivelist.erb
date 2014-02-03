@@ -1,0 +1,11 @@
+<li data-role="list-divider"><a href="/app/Article"> Archived Articles</a></li> 
+            
+<% articles.each do |article| %>
+          
+              <li id="<%=article.object%>">
+                <a href="<%= url_for :controller => :Article, :action => :show, :id => article.object %>">
+                  <%= article.title %>
+                </a>
+              </li>
+          
+             <% end %>     

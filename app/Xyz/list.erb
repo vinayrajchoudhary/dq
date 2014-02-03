@@ -6,16 +6,8 @@
 
           <li><a href="/app/Xyz" data-role="button" data-icon="home">
           Home</a> </li>
-          <li data-role="list-divider">Archived Articles</li> 
-            <% @articles.each do |article| %>
-         
-             <li>
-               <a href="<%= url_for :controller => :Article, :action => :show, :id => article.object %>">
-                 <%= article.title %>
-               </a>
-             </li>
-         
-              <% end %>                 
+            <%= render :partial =>"partials/archivelist", :locals => { :articles => @articles } %>            
+                                
           </ul>
  </div><!-- /panel -->
 <div data-role="header" > 

@@ -41,9 +41,15 @@ class ArticleController < Rho::RhoController
      @article = Article.create(@params['article'])
     redirect :action => :index
   end
-  def create1
+  def created
+    Article.find(:all).each do |a|
+      a.destroy 
+    end
     @article = Article.create(@params['article'])
-    redirect :action => :index
+     
+    obj = {"title" => @article.title, "id"=> @article.object}
+        result = obj.to_json
+    render :string => result, :layout => false 
   end
 
   # POST /Article/{1}/update
