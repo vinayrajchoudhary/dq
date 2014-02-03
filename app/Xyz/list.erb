@@ -20,13 +20,13 @@
     <ul data-role="listview" >            
           <%begin%>
             <% @ds["pages"].each do |d|%>
-              <li data-icon="false" >
+              <li data-icon="false" class="ui-li-has-thumb">
                 <a  href="/app/Xyz/articl?ad=<%=d['link']%>" style="white-space:normal;">
-                <%begin%>
-                <img src="<%=d["img_url"]%>" class="ui-li-thumb" />
-                <%rescue%>
-                <img src="/public/images/article.jpg" class="ui-li-thumb" />
+                <div class="ui-li-thumb" style="background:#aad5db;height:4.98em;width:5em;">
+                <%if d["img_url"]%>
+                <img src="<%=d["img_url"]%>" style="height:5em;width:5em;" />
                 <%end%>
+                </div>
                 <h2 class="ui-li-heading"><%=d["title"]%></h2>  
                     <p class="ui-li-desc"><%=d["link"]%></p>
              
