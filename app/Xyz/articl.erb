@@ -11,7 +11,7 @@ $("a#archiveit").click(function (e) {
           cache: false,
           data: {"article": {
             "title" : "<%=@artc['title']%>",
-            "content" : $('.read_text').html(),
+            "content" : $('.read_text',a).html(),
           "source" : "<%=@source%>"}           
           },
     success : function(data){
@@ -33,6 +33,9 @@ return false;
 });
 </script>
 <style>
+.read_text img{
+max-width: 100%;
+}
 /* reset buttons */
 a[data-role="button"][data-theme="reset"] {
 border: none;

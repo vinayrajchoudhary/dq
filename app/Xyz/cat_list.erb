@@ -1,15 +1,8 @@
 
 <div data-role="page" data-theme="a">
-<script>
-$(function(){
-  $("img").error(function(){
-          $(this).hide();
-  });
-});
-</script>
+
 <div data-role="panel" id="myPanel" class="main_nav" data-display="push"  data-dismissible="true" data-theme="b">
   <ul data-role="listview" class="a">            
-
           <li><a href="/app/Xyz" data-role="button" data-icon="home">
           Home</a> </li>
             <%= render :partial =>"partials/archivelist", :locals => { :articles => @articles } %>            
@@ -24,23 +17,17 @@ $(function(){
 </div><!-- /header -->
 <div data-role="content" style="overflow-x: visible;">
     <ul data-role="listview" >            
-          <%begin%>
-            <% @ds["pages"].each do |d|%>
-              <li data-icon="false" class="ui-li-has-thumb">
-                <a  href="/app/Xyz/articl?ad=<%=d['link']%>" style="white-space:normal;">
-                <div class="ui-li-thumb" style="background:#aad5db;height:4.98em;width:5em;">
-                <%if d["img_url"]%>
-                <img src="<%=d["img_url"]%>" style="background:#eee;height:5em;width:5em;" />
-                <%end%>
-                </div>
-                <h2 class="ui-li-heading"><%=d["title"]%></h2>  
-                    <p class="ui-li-desc"><%=d["link"]%></p>
-             
+   
+    <%begin%>     
+    <% @ds.each do |d|%>
+              <li data-icon="false" >
+                <a  href="/app/Xyz/list?search=<%=d%>" style="white-space:normal;">
+                  <%=d%>
                 </a></li>
             <%end%>
-          <%rescue Exception => e%>
-          <%="Error: #{e}"%>
-          <%end%>
+    <%rescue Exception => e%>
+    There was some error at our server :(
+    <%end%>
      </ul>
 
   </div><!-- /content -->

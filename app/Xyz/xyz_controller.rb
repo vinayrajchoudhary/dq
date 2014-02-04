@@ -9,6 +9,21 @@ class XyzController < Rho::RhoController
    @articles = Article.find(:all)
     render 
   end
+  def cat_list
+    @articles = Article.find(:all)
+       @query = @params['cat']  
+      if @params['cat']
+         
+       result = Rho::AsyncHttp.get(
+            :url => "http://daqwest.com/cat_list.json?cat="+@params['cat'].gsub(" ","%20")
+          )
+          @get_result = result["body"]
+          @ds = Rho::JSON.parse(@get_result)   
+      end  
+       
+      render 
+    
+  end
   def list
     @articles = Article.find(:all)
      @query = @params['search']  
@@ -24,6 +39,7 @@ class XyzController < Rho::RhoController
     render 
      
   end
+  
   def articl
     @articles = Article.find(:all)
     if @params['ad']
