@@ -8,25 +8,28 @@
             <%= render :partial =>"partials/archivelist", :locals => { :articles => @articles } %>            
               </ul>
    </div><!-- /panel -->
-<div data-role="header" data-theme="b" > 
-      <a href="#myPanel" data-rel="panel" data-role="button" data-corners="false" data-iconpos="notext" data-icon="bars" data-theme="c" style="background-color:#9ecf5e;border-color:#567133"></a>
+<div data-role="header" id="header" > 
+      <a href="#myPanel" data-rel="panel" data-role="button" data-corners="true" data-iconpos="left" data-icon="bars" data-inline="true" data-theme="c" >daqwest</a> 
       <input name="password" id="search" value="" placeholder="look in index" type="search">
 </div><!-- /header -->
+      <div data-role="content" style="padding:0px;">
+      <div style="border-bottom:1px solid #9cc;color:#9cc;padding-top:1%;padding-bottom:1%;padding-left:2%;">Index</div>
+      </div>
 <div data-role="content" >
       
-      <ul data-role="listview" style="margin-top: 0px;margin-bottom:0px;" >
-      <div id="deviders" >Index</div>
-             <li id = "catlist" data-icon="false">
-              <a href="/app/Xyz/cat_list?cat=Sequence sorting">
-              <div style="display:inline;float:left"><img src="https://cdn2.iconfinder.com/data/icons/flaticons-stroke/16/notebook-3-256.png" width:"20px" height= "30px" style="margin-top:8px"></div>
-                  <div style="margin-left:10px;float:left;display:inline;">
-                  <div><b>Sequence sorting</b></div>
-                  <div id="shortdesc">Contains- Bubble sort, selection sort, insertion sort etc...</div>
-                  <div id = "tags">Algorithms   33</div>
-                  </div>
-              </a></li>
-                          
-          </ul>
+      <ul data-role="listview">
+            <li id = "catlist" data-icon="false">
+            <a href="/app/Xyz/cat_list?cat=Sequence sorting">                  
+            <img src="https://cdn2.iconfinder.com/data/icons/flaticons-stroke/16/notebook-3-256.png" width:"20px" height= "30px" style="padding:15px">
+                <div style="margin-left:-45px;">
+                <div><b>Sequence sorting</b></div>
+                <div id="shortdesc">Contains- Bubble sort, selection sort, insertion sort etc...</div>
+                <div id = "tags">Algorithms   33</div>
+                </div>
+            </a>
+                </li>
+           
+        </ul>
 </div>
      
       <div data-role="footer"  data-position="fixed" >   

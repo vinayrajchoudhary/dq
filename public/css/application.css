@@ -1,11 +1,28 @@
 .ui-page-theme-a{
     background-color:#fff;
 }
-
-.ui-header {
+ul#algolist{
+    margin:0em;
+}
+div#header .ui-btn{
+    background-color:#fff;
+    border-color:#fff;
+    border-radius:0px;
+    margin-left:-6px;
+    box-shadow:0px 0px 0px #fff;
+    font-weight:normal;
+    font-family:serif;
+    font-size:0.8em;
+}
+div#header {
     background-color:#fff;
     border-color:#eee;
+	
 }
+div#header .ui-btn:focus{
+    background-color:#666;
+	color:white;
+	}
 div#deviders{
 border-bottom:1px solid #9cc;color:#9cc;padding-top:1%;padding-bottom:1%;padding-left:2%;
 
@@ -26,8 +43,22 @@ div.ui-header .ui-input-search{
     background-color:#fff;
     color:grey;
     font-weight: 100;
+    padding-bottom: 0.2em;
+    padding-top: 0.2em;
+	font-size: 0.8em;
 }
 
+li#zero{
+    padding:10px;
+    list-style: none;
+}
+
+div#zero_desc{
+    text-align:justify;
+    padding:10px;
+    background-color:rgb(252,252,252);
+    font-family:serif;
+}
 input#search{
     font-family:chapparal-pro,serif;
 }

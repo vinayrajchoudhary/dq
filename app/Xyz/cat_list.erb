@@ -1,34 +1,51 @@
-
-<div data-role="page" data-theme="a">
+<div data-role="page"  data-theme="a">
 
 <div data-role="panel" id="myPanel" class="main_nav" data-display="push"  data-dismissible="true" data-theme="b">
-  <ul data-role="listview" class="a">            
-          <li><a href="/app/Xyz" data-role="button" data-icon="home">
-          Home</a> </li>
-            <%= render :partial =>"partials/archivelist", :locals => { :articles => @articles } %>            
-                                
-          </ul>
- </div><!-- /panel -->
-<div data-role="header" > 
-    <a href="#myPanel" data-rel="panel" data-role="button" data-corners="false" data-iconpos="notext" data-icon="bars" data-theme="c" style="background-color:#9ecf5e;border-color:#567133"></a>
-    <h1>DQ</h1>
-    <div class="orange" style="background-color:orange;float:left;width:100%;height:2px"></div>
- 
-</div><!-- /header -->
-<div data-role="content" style="overflow-x: visible;">
-    <ul data-role="listview" >            
-   
-    <%begin%>     
-    <% @ds.each do |d|%>
-              <li data-icon="false" >
-                <a  href="/app/Xyz/list?search=<%=d%>" style="white-space:normal;">
-                  <%=d%>
-                </a></li>
-            <%end%>
-    <%rescue Exception => e%>
-    There was some error at our server :(
-    <%end%>
-     </ul>
+    <ul data-role="listview" class="a">            
 
-  </div><!-- /content -->
+            <li><a href="/app/Xyz" data-role="button" data-icon="home">
+            Home</a> </li>
+            <%= render :partial =>"partials/archivelist", :locals => { :articles => @articles } %>            
+              </ul>
+   </div><!-- /panel -->
+      <div data-role="header" id="header" > 
+            <a href="#myPanel" data-rel="panel" data-role="button" data-corners="true" data-iconpos="left" data-icon="bars" data-inline="true" data-theme="c" >daqwest</a> 
+      <input name="password" id="search" value="" placeholder="look in index" type="search">
+</div><!-- /header -->
+      <div data-role="content" style="padding:0px;">
+          <div style="border-bottom:1px solid #9cc;color:#9cc;padding-top:1%;padding-bottom:1%;padding-left:2%;">
+              <div style="float:left;display:inline;"><img src = "http://www.valtorc.com/images/yootheme/slideshow_list/Article_icon.png" width="20px" height="20px" style="margin-top:1%;"></div>
+              <div style="margin-left:25px;"><%=@query%></div>
+              </div>
+          </div>
+<div data-role="content" style="padding:0px;">
+      
+      <ul data-role="listview" id = "algolist">
+        <%begin%>     
+        <% @ds.each do |d|%>
+          <li data-icon="false">
+          <a style="background-color:#fff;font-family:serif;font-weight:normal;"href="/app/Xyz/list?search=<%=d%>" style="white-space:normal;">
+          <div style="margin-left:28px;">  
+                     <%=d%></div>
+                   </a></li>
+               <%end%>
+               <%rescue Exception => e%>
+               There was some error at our server :(
+               <%end%>
+   
+           
+        </ul>
 </div>
+     
+      <div data-role="footer"  data-position="fixed" >   
+        <div data-role="navbar" data-iconpos="left">
+          <ul>
+            <li><a data-icon="grid" href="#">Description</a></li>
+            <li><a data-icon="bars" href="#">Articles</a></li>
+          </ul>
+        </div><!-- /navbar -->
+      </div><!-- /footer -->
+      </div>
+
+   
+ 
