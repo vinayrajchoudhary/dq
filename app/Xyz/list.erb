@@ -20,20 +20,20 @@ $(function(){
           <a href="#myPanel" data-rel="panel" data-role="button" data-corners="true" data-iconpos="left" data-icon="bars" data-inline="true" data-theme="c" >daqwest</a> 
   <h2>..</h2>
 </div><!-- /header -->
-    <div data-role="content" style="padding:0px;">
-        <div style="border-bottom:1px solid #9cc;padding-top:1%;padding-bottom:1%;padding-left:2%;">
-            <div style="float:left;display:inline;"><img src = "http://www.valtorc.com/images/yootheme/slideshow_list/Article_icon.png" width="20px" height="20px" style="margin-top:1%;"></div>
-                <div style="margin-left:25px;color:#9cc;"><%=@query%>/ <b>Definition</b></div>
-            </div>
-        </div>
+   
 <div data-role="content" style="padding:0px;overflow-x: visible;">
-    <li id="zero">
+    <div style="border-bottom:1px solid #9cc;padding-top:1%;padding-bottom:1%;padding-left:2%;">
+              <div style="float:left;display:inline;"><img src = "http://www.valtorc.com/images/yootheme/slideshow_list/Article_icon.png" width="20px" height="20px" style="margin-top:1%;"></div>
+                  <div style="margin-left:25px;color:#9cc;"><%=@query%>/ <b>Definition</b></div>
+              </div>    
+    <%@ds["desc"].each do |d|%>
+              <li id="zero">
         <div id = "zero_desc">
-            <div style="color:#555;">Bubble sort, sometimes incorrectly referred to as sinking sort, is a simple sorting algorithm that works by repeatedly stepping through the list to be sorted, comparing each pair of adjacent items and swapping them if they are in the wrong order. The pass through the list is repeated until no swaps are needed, which indicates that the list is sorted. The algorithm gets its name from the way smaller elements "bubble" to the top of the list. Because it only uses comparisons to operate on elements, it is a comparison sort. Although the algorithm is simple, most of the other sorting algorithms are more efficient for large lists.</div>
-            <div style="text-align:right;color:#ccc;font-size:0.9em;padding:2px;font-family:serif;">www.wikipedia.com</div>
+            <div style="color:#555;"><%=d["content"]%></div>
+            <div style="text-align:right;color:#ccc;font-size:0.9em;padding:2px;font-family:serif;"><%=d["source"]%></div>
         </div>
     </li>   
-
+<%end%>
 <ul data-role="listview" >            
           <%begin%>
             <% @ds["pages"].each do |d|%>
@@ -53,6 +53,15 @@ $(function(){
           <%="Error: #{e}"%>
           <%end%>
      </ul>
-
-  </div><!-- /content -->
+     <%@ds["videos"].each do |vd|%>
+          <%=vd["title"]%>
+          <iframe width="520" height="300" src="<%=vd["link"]%>" frameborder="0" allowfullscreen=""></iframe>
+     <%end%>  
+</div><!-- /content -->
+<script>
+var article_links = [];
+  <%@ds["pages"].each do |d|%>
+    article_links.push("/app/Xyz/articl?ad=<%=d["link"]%>");
+  <%end%>
+</script>
 </div>

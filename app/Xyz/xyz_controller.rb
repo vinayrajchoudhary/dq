@@ -7,7 +7,8 @@ class XyzController < Rho::RhoController
   # GET /Xyz
   def index
    @articles = Article.find(:all)
-    render 
+    @categories = ["Sequence sorting","Dynamic Programming","Graph algorithms","Strings and pattern matching","Tree (data structure)", "Combinatorial algorithms"]
+   render 
   end
   def cat_list
     @articles = Article.find(:all)
@@ -30,7 +31,7 @@ class XyzController < Rho::RhoController
     if @params['search']
        
      result = Rho::AsyncHttp.get(
-          :url => "http://daqwest.com/rhodes.json?a="+@params['search'].gsub(" ","%20")
+          :url => "http://localhost:3000/rhodes.json?a="+@params['search'].gsub(" ","%20")
         )
         @get_result = result["body"]
           @ds = Rho::JSON.parse(@get_result)   
@@ -55,7 +56,9 @@ class XyzController < Rho::RhoController
                   @source = source.split("/")[2]
                 else
                   @source = source.split("/")[1]
-                end    
+                end 
+
+                @current_article = "/app/Xyz/articl?ad="+source  
     end
     if @get_result  
     render 

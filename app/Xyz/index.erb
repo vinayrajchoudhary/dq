@@ -18,26 +18,20 @@
 <div data-role="content" >
       
       <ul data-role="listview">
-            <li id = "catlist" data-icon="false">
-            <a href="/app/Xyz/cat_list?cat=Sequence sorting">                  
+      <%@categories.each do |ct|%>
+                        
+      <li id = "catlist" data-icon="false">
+            <a href="/app/Xyz/cat_list?cat=<%=ct%>">                  
             <img src="https://cdn2.iconfinder.com/data/icons/flaticons-stroke/16/notebook-3-256.png" width:"20px" height= "30px" style="padding:15px">
                 <div style="margin-left:-45px;">
-                <div><b>Sequence sorting</b></div>
+                <div><b><%=ct%></b></div>
                 <div id="shortdesc">Contains- Bubble sort, selection sort, insertion sort etc...</div>
                 <div id = "tags">Algorithms   33</div>
                 </div>
             </a>
-                </li>
-           
+            </li>
+  
+              <%end%>
         </ul>
-</div>
-     
-      <div data-role="footer"  data-position="fixed" >   
-        <div data-role="navbar" data-iconpos="left">
-          <ul>
-            <li><a data-icon="grid" href="#">Description</a></li>
-            <li><a data-icon="bars" href="#">Articles</a></li>
-          </ul>
-        </div><!-- /navbar -->
-      </div><!-- /footer -->
+    
       </div>

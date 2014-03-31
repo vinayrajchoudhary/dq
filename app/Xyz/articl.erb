@@ -1,8 +1,43 @@
 
-<div data-role="page" data-theme="a">
+<div data-role="page" data-theme="a" data-next="" data-prev="" id="article_page">
 <script>
+var current_article;
+  var article_index ;
+    var next_article;
+  var prev_article ;
+$(document ).on( "pageinit pageshow","[data-role='page'].demo-page", function( event, ui ) {
+  if(event.handled !== true) // This will prevent event triggering more then once
+      { 
+  current_article = $.mobile.activePage.data('url');
+  console.log(current_article);
+  article_index = article_links.indexOf(current_article);
+      next_article = article_links[article_index+1];
+     prev_article = article_links[article_index-1];
+
+     $(document).on('tap', '[data-role="page"]', function(event){    
+    if(event.handled !== true) // This will prevent event triggering more then once
+    {    
+        // swipe using id of next page if exists
+            $.mobile.changePage(next_article, {transition: "slide", reverse: false}, true, true);
+        
+        event.handled = true;
+    }
+    return false;         
+});
+$(document).on('swiperight', '[data-role="page"]', function(event){   
+if(event.handled !== true) // This will prevent event triggering more then once
+{      
+        $.mobile.changePage(prev_article, {transition: "slide", reverse: true}, true, true);
+    event.handled = true;
+}
+return false;            
+});
+}
+
+} );
 $(function(){
-$("a#archiveit").click(function (e) {
+
+  $("a#archiveit").click(function (e) {
   var a = $(this).parent().parent();
   $(".read_text",a).html();
   $.ajax({
